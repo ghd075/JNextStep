@@ -37,11 +37,11 @@ public class StringCaculatorTest {
 	
 	@Test
 	public void add_custom_separator() {
-		assertEquals(1,cal.add("1"));
+		assertEquals(6,cal.add("//;\n1;2;3"));
 	}
 	
-	@Test
+	@Test(expected = RuntimeException.class)
 	public void add_negative() {
-		assertEquals(1,cal.add("1"));
+		assertEquals(1,cal.add("-1,2,3"));
 	}
 }
