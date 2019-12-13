@@ -27,12 +27,13 @@ public class StringCaculator {
 	/*
 	 * 요구사항2 숫자 하나를 문자열로 입력할 경우 해당 숫자를 반환
 	 * 요구사항3 숫자 두개를 쉼표(,)구분자로 입력할 경우 두 숫자의 합을 반환
+	 * 요구사항4 구분자를 쉼표(,)이외에 콜론(:)을 사용할 수 있다.
 	 * 
 	 */
 	
 	//리팩토링로 split기능 분리
 	private String[] split(String text) {
-		String[] values = text.split(",");
+		String[] values = text.split(",|:");
 		return values;
 	}
 	

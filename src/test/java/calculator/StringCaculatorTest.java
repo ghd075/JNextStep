@@ -32,7 +32,7 @@ public class StringCaculatorTest {
 
 	@Test
 	public void add_rest_colon_separator_check() {
-		assertEquals(1,cal.add("1,2"));
+		assertEquals(6,cal.add("1,2:3"));
 	}
 	
 	@Test
