@@ -32,6 +32,7 @@ public class StringCaculator {
 	 * 요구사항3 숫자 두개를 쉼표(,)구분자로 입력할 경우 두 숫자의 합을 반환
 	 * 요구사항4 구분자를 쉼표(,)이외에 콜론(:)을 사용할 수 있다.
 	 * 요구사항5 "//"와 "\n" 문자 사이에 커스텀 구분자를 지정할 수 있다.
+	 * 요구사항6 문자열 계산기에 음수를 전달하는 경우 RuntimeException
 	 * 
 	 */
 	
@@ -50,13 +51,19 @@ public class StringCaculator {
 	private int[] toInts(String[] values) {
 		int[] numbers = new int[values.length];
 		for(int i = 0; i < values.length; i++) {
-			int number = Integer.parseInt(values[i]);
-			if(number < 0) {
-				throw new RuntimeException();
-			}
+			int number = toPositive(values[i]);
 			numbers[i] = number;
 		}
 		return numbers;
+	}
+	
+	//양수인지 확인 기능 분리
+	private int toPositive(String value) {
+		int number = Integer.parseInt(value);
+		if(number < 0) {
+			throw new RuntimeException();
+		}
+		return number;
 	}
 	
 	//리팩토링로 sum기능 분리
